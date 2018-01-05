@@ -24,10 +24,5 @@ module.exports = function(app) {
 
   app.route('/episode/:video_key')
     .get(episodes.video);
-
-
-  // app.route('/category/:path')
-  //   .get(categories.read_a_task)
-  //   .put(todoList.update_a_task)
-  //   .delete(todoList.delete_a_task);
+    
 };
