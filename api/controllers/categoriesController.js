@@ -2,13 +2,14 @@
 
 var cheerio = require('cheerio'),
     request = require('request'),
-    settings = require('../settings');
+    settings = require('../settings'),
+    reqOptions = require('../req-options');
 
 exports.list_all = function(req, res) {
 
   var url = settings.base_path+"/genero";
 
-  request(url, function (error, response, body) {
+  request(url, reqOptions, function(error, response, body) {
 
     if( response.statusCode !== 200 || error ){
       res.json({
@@ -18,7 +19,11 @@ exports.list_all = function(req, res) {
       return;
     }
 
+    console.log(body);
     var $ = cheerio.load(body);
+    
+    console.log($('#wrapper .list-group-item').length);
+
     var arr = [];
     $('#wrapper .list-group-item').each(function(index, el){
       arr.push({

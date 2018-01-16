@@ -2,7 +2,8 @@
 
 var cheerio = require('cheerio'),
     request = require('request'),
-    settings = require('../settings');
+    settings = require('../settings'),
+    reqOptions = require('../req-options');
 
 exports.list_all = function(req, res) {
   
@@ -15,7 +16,7 @@ exports.list_all = function(req, res) {
     url = settings.base_path+"/busca/page/"+page+"/?search_query="+terms+"&tipo=desc";
   }
 
-  request(url, function (error, response, body) {
+  request(url, reqOptions, function (error, response, body) {
 
     if( response.statusCode !== 200 || error ){
       res.json({
@@ -64,7 +65,7 @@ exports.video = function(req, res) {
 
   console.log(url);
 
-  request(url, function(err, response, body){
+  request(url, reqOptions, function(err, response, body){
     console.log(err);
     if(!err) {
       var $ = cheerio.load(body);

@@ -2,14 +2,15 @@
 
 var cheerio = require('cheerio'),
     request = require('request'),
-    settings = require('../settings');
+    settings = require('../settings'),
+    reqOptions = require('../req-options');
 
 exports.list_all = function(req, res) {
   var page = !isNaN(Number(req.params.page)) ? req.params.page : 1; 
   var url = settings.base_path+"/anime/page/"+page;
   var min = 500;
 
-  request(url, function (error, response, body) {
+  request(url, reqOptions, function(error, response, body) {
 
     if( response.statusCode !== 200 || error ){
       res.json({
@@ -46,7 +47,7 @@ exports.detail = function(req, res) {
   var slug = req.params.slug || "";
   var url = settings.base_path+"/anime/"+slug;
 
-  request(url, function (error, response, body) {
+  request(url, reqOptions, function (error, response, body) {
 
     if( response.statusCode !== 200 || error ){
       res.json({
@@ -94,7 +95,7 @@ exports.episodes = function(req, res) {
 
   console.log(url);
 
-  request(url, function (error, response, body) {
+  request(url, reqOptions, function (error, response, body) {
 
     if( response.statusCode !== 200 || error ){
       res.json({
