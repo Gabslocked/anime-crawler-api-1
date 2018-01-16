@@ -19,11 +19,9 @@ exports.list_all = function(req, res) {
       return;
     }
 
-    console.log(body);
-    var $ = cheerio.load(body);
-    
-    console.log($('#wrapper .list-group-item').length);
+    console.log(new Date().getTime());
 
+    var $ = cheerio.load(body);
     var arr = [];
     $('#wrapper .list-group-item').each(function(index, el){
       arr.push({
