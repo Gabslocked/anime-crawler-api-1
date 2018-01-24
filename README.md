@@ -20,3 +20,8 @@ https://ogv-anime-api.herokuapp.com/episodes/naruto/1
 
 Arquivo do episódio
 https://ogv-anime-api.herokuapp.com/episode/46145|boruto-naruto-next-generations-1
+
+====
+
+APP Android (Hibrido, Ionic) usando a API:
+https://github.com/ogilvieira/anime-streaming-app
