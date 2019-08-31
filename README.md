@@ -1,7 +1,7 @@
 # anime-crawler-api
 Api Crawler de animes feita com Nodejs. Just for fun.
 
-A API faz um Crawler no site do Anitubebr (http://anitubebr.biz) e retorna animes, categorias e episódios.
+A API faz um Crawler no site do Anitubebr (https://anitube.cz) e retorna animes, categorias e episódios.
 
 Categorias de animes
 https://ogv-anime-api.herokuapp.com/category
